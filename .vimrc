@@ -47,7 +47,8 @@
 
 " jump definition
   set tags=./tags;
-
+  nnoremap <C-]> g<C-]>
+  inoremap <C-]> <ESC>g<C-]>
 
 
 

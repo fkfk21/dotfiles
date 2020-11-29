@@ -5,6 +5,7 @@ ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
 ln -sf ~/dotfiles/.git-prompt.sh ~/.git-prompt.sh
 ln -sf ~/dotfiles/.git-prompt-export ~/.git-prompt-export
+
 prom="source ~/.git-prompt-export"
 grep "$prom" ~/.bashrc
 if [ $? = 0 ]; then
@@ -14,4 +15,6 @@ else
   echo $prom >> ~/.bashrc
 fi
 
-
+# vscode
+ln -sf ~/dotfiles/settings.json ~/.config/Code/User/settings.json
+ln -sf ~/dotfiles/keybindings.json ~/.config/Code/User/keybindings.json

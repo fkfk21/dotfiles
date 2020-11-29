@@ -1,0 +1,101 @@
+{
+    // --------------- for vim   -----------------
+    "vim.autoindent": true,
+    "vim.hlsearch": true,
+    "vim.vimrc.enable": true,
+
+    // --------------- for latex -----------------
+    "[tex]": {
+        // スニペット補完中にも補完を使えるようにする
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+    },
+
+    "[latex]": {
+        // スニペット補完中にも補完を使えるようにする
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+    },
+
+
+    // ---------- LaTeX Workshop ----------
+
+    // 使用パッケージのコマンドや環境の補完を有効にする
+    "latex-workshop.intellisense.package.enabled": true,
+
+    // 生成ファイルを削除するときに対象とするファイル
+    // デフォルト値に "*.synctex.gz" を追加
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.nav",
+        "*.dvi",
+        "*.synctex.gz"
+    ],
+
+    // 生成ファイルを "out" ディレクトリに吐き出す
+    "latex-workshop.latex.outDir": "out",
+
+    // ビルドのレシピ
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+    ],
+
+    // ビルドのレシピに使われるパーツ
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-file-line-error",
+                "-silent",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+        },
+    ],
+
+    "latex-workshop.view.pdf.viewer": "tab",
+
+    // --------------- matlab --------------------
+    "matlab.mlintpath": "/usr/local/MATLAB/R2020a/bin/glnxa64/mlint",
+
+    // --------------- for global ----------------
+
+    // インデント幅を2にする
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+
+    "workbench.iconTheme": "vscode-icons",
+
+    "vsicons.dontShowNewVersionMessage": true,
+    "java.home": "/usr/lib/jvm/java-14-openjdk-amd64",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.semanticHighlighting.enabled": true,
+    "C_Cpp.updateChannel": "Insiders",
+    "window.zoomLevel": 0,
+
+}

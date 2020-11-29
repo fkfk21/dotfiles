@@ -36,6 +36,7 @@
   inoremap jj <ESC>
   " esc * 2 delete highlight
   nmap <silent> <ESC><ESC> :nohlsearch<CR>
+  " move in insert mode
 
 " move center search word
   nnoremap n nzz

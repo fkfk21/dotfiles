@@ -1,5 +1,11 @@
 {
     // --------------- for vim   -----------------
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
     "vim.autoindent": true,
     "vim.hlsearch": true,
     "vim.vimrc.enable": true,

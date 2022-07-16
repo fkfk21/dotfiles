@@ -19,3 +19,6 @@ fi
 mkdir -p ~/.config/Code/User
 ln -sf ~/dotfiles/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/dotfiles/keybindings.json ~/.config/Code/User/keybindings.json
+
+# fish
+ln -sf ~/dotfiles/config.fish ~/.config/fish/config.fish

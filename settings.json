@@ -103,5 +103,9 @@
     "java.semanticHighlighting.enabled": true,
     "C_Cpp.updateChannel": "Insiders",
     "window.zoomLevel": 0,
+    "redhat.telemetry.enabled": true,
+    "terminal.integrated.fontFamily": "Cica",
+    "terminal.integrated.fontSize": 17,
+    "terminal.integrated.defaultProfile.linux": "fish",
 
 }

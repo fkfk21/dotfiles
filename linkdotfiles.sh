@@ -21,4 +21,8 @@ ln -sf ~/dotfiles/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/dotfiles/keybindings.json ~/.config/Code/User/keybindings.json
 
 # fish
-ln -sf ~/dotfiles/config.fish ~/.config/fish/config.fish
+ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
+ln -sf ~/dotfiles/fish/bobthefish_config.fish ~/.config/fish/conf.d/bobthefish_config.fish
+ln -sf ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
+
+

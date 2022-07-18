@@ -1,3 +1,8 @@
+if status is-interactive
+  # use the 
+  fish_config theme choose Tomorror\ Night\ Bright
+end
+
 
 # alias colcon='__colcon_find_workspace_dir > /dev/null && cd (__colcon_find_workspace_dir); command colcon'
 # alias roscd="ccd -o"

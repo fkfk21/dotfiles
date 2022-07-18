@@ -10,5 +10,5 @@ end
 if [ "$ROS_VERSION" = "1" ]
     source /opt/ros/noetic/share/rosbash/rosfish
 else if [ "$ROS_VERSION" = "2" ]
-    register-python-argcomplete3 --shell fish ros2 | source
+    register-python-argcomplete --shell fish ros2 | source
 end

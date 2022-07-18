@@ -1,5 +1,5 @@
 
-alias colcon='__colcon_find_workspace_dir > /dev/null && cd (__colcon_find_workspace_dir); command colcon'
+# alias colcon='__colcon_find_workspace_dir > /dev/null && cd (__colcon_find_workspace_dir); command colcon'
 # alias roscd="ccd -o"
 
 if [ "$ROS_VERSION" = "1" ]

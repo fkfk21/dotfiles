@@ -1,6 +1,6 @@
 if status is-interactive
   # use the 
-  fish_config theme choose Tomorror\ Night\ Bright
+  fish_config theme choose Tomorrow\ Night\ Bright
 end
 
 

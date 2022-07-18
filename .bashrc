@@ -12,6 +12,11 @@ source /etc/skel/.bashrc
 # Add user's private bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# common bash history across multiple terminals
+# note: if the prompt is slow to redisplay, you may be useful to disable this
+export PROMPT_COMMAND="history -a; histroy -c; history -r; $PROMPT_COMMAND"
+shopt -u histappend
+
 # git
 # source ~/.git-prompt-export
 # alias

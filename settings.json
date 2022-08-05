@@ -84,28 +84,31 @@
     ],
 
     "latex-workshop.view.pdf.viewer": "tab",
-
-    // --------------- matlab --------------------
-    "matlab.mlintpath": "/usr/local/MATLAB/R2020a/bin/glnxa64/mlint",
-
-    // --------------- for global ----------------
-
-    // インデント幅を2にする
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
 
     "workbench.iconTheme": "vscode-icons",
 
     "vsicons.dontShowNewVersionMessage": true,
-    "java.home": "/usr/lib/jvm/java-14-openjdk-amd64",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.semanticHighlighting.enabled": true,
-    "C_Cpp.updateChannel": "Insiders",
     "window.zoomLevel": 0,
     "redhat.telemetry.enabled": true,
     "terminal.integrated.fontFamily": "Cica",
     "terminal.integrated.fontSize": 17,
     "terminal.integrated.defaultProfile.linux": "fish",
-
+    "cmake.configureOnOpen": false,
+    "python.autoComplete.extraPaths": [
+        "/usr/lib/python3/dist-packages",
+        "/home/fkfk21/.local/lib/python3.8/site-packages"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.extraPaths": [
+        "/usr/lib/python3/dist-packages",
+        "${env:HOME}/.local/lib/python3.8/site-packages"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.stubPath": "${env:HOME}/.local/lib/python3.8/site-packages",
+    
 }

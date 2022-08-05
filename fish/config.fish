@@ -8,9 +8,12 @@ end
 # alias roscd="ccd -o"
 
 # add abbr
-abbr -a gcom git commit -m ""
-abbr -a gsta git status
+abbr -a gcom git commit -m 
+abbr -a gst git status
 abbr -a fconf vim ~/.config/fish/config.fish
+
+# python
+set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 
 if [ "$ROS_VERSION" = "1" ]

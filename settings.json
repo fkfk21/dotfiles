@@ -106,9 +106,11 @@
     "python.analysis.autoImportCompletions": true,
     "python.analysis.extraPaths": [
         "/usr/lib/python3/dist-packages",
-        "${env:HOME}/.local/lib/python3.8/site-packages"
+        "${env:HOME}/.local/lib/python3.8/site-packages",
     ],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.stubPath": "${env:HOME}/.local/lib/python3.8/site-packages",
+    "extensions.ignoreRecommendations": true,
+    "git.repositoryScanMaxDepth": 3,
     
 }

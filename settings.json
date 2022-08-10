@@ -84,6 +84,11 @@
     ],
 
     "latex-workshop.view.pdf.viewer": "tab",
+
+    // --------------- for global ----------------
+
+    // インデント幅を2にする
+    // "matlab.mlintpath": "/usr/local/MATLAB/R2020a/bin/glnxa64/mlint",
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
 

@@ -45,6 +45,10 @@ if [ -d "/opt/ros" ]; then
     fi
 fi
 
+if [ -d "$HOME/ros2_ws/install" ]; then
+  source $HOME/ros2_ws/install/setup.bash
+fi
+
 # Linuxbrew
 # test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 

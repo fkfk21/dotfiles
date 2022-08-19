@@ -14,7 +14,7 @@ abbr -a fconf vim ~/.config/fish/config.fish
 
 # ros2 build command
 if test -d ~/ros2_ws
-  abbr -a ros2-build "cd ~/ros2_ws && colcon build"
+  abbr -a ros2build "cd ~/ros2_ws && colcon build --symlink-install"
 end
 
 # python

@@ -14,7 +14,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # common bash history across multiple terminals
 # note: if the prompt is slow to redisplay, you may be useful to disable this
-export PROMPT_COMMAND="history -a; histroy -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 shopt -u histappend
 
 # git
@@ -43,6 +43,10 @@ if [ -d "/opt/ros" ]; then
     elif [ "$ROS_VERSION" = "2" ]; then
         export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message}"
     fi
+fi
+
+if [ -d "$HOME/ros2_ws/install" ]; then
+  source $HOME/ros2_ws/install/setup.bash
 fi
 
 # Linuxbrew

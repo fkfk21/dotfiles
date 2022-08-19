@@ -84,6 +84,11 @@
     ],
 
     "latex-workshop.view.pdf.viewer": "tab",
+
+    // --------------- for global ----------------
+
+    // インデント幅を2にする
+    // "matlab.mlintpath": "/usr/local/MATLAB/R2020a/bin/glnxa64/mlint",
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
 
@@ -97,7 +102,7 @@
     "redhat.telemetry.enabled": true,
     "terminal.integrated.fontFamily": "Cica",
     "terminal.integrated.fontSize": 17,
-    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.defaultProfile.linux": "bash",
     "cmake.configureOnOpen": false,
     "python.autoComplete.extraPaths": [
         "/usr/lib/python3/dist-packages",
@@ -106,9 +111,14 @@
     "python.analysis.autoImportCompletions": true,
     "python.analysis.extraPaths": [
         "/usr/lib/python3/dist-packages",
-        "${env:HOME}/.local/lib/python3.8/site-packages"
+        "${env:HOME}/.local/lib/python3.8/site-packages",
     ],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.stubPath": "${env:HOME}/.local/lib/python3.8/site-packages",
+    "extensions.ignoreRecommendations": true,
+    "git.repositoryScanMaxDepth": 3,
+    "C/C++ Include Guard.Prevent Decimal": false,
+    "C/C++ Include Guard.File Path Pascal Case to Snake Case": true,
+    "C/C++ Include Guard.Macro Type": "Filepath",
     
 }

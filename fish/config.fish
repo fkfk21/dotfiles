@@ -10,6 +10,7 @@ end
 # add abbr
 abbr -a gcom git commit -m 
 abbr -a gst git status
+abbr -a ga git add .
 abbr -a fconf vim ~/.config/fish/config.fish
 
 # ros2 build command

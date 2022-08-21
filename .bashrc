@@ -15,6 +15,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # common bash history across multiple terminals
 # note: if the prompt is slow to redisplay, you may be useful to disable this
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export HISTCONTROL=erasedups
 shopt -u histappend
 
 # git

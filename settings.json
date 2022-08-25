@@ -4,8 +4,20 @@
         {
             "before": ["j", "j"],
             "after": ["<Esc>"]
-        }
+        },
     ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["d"], "after": ["\"", "_", "d"]},
+        { "before": ["x"], "after": ["\"", "_", "x"]},
+        { "before": ["p"], "after": ["p"]},
+        { "before": [">"], "commands": ["editor.action.indentLines"]},
+        { "before": ["<"], "commands": ["editor.action.outdentLines"]},
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        { "before": ["d"], "after": ["\"", "_", "d"]},
+        { "before": ["p"], "after": ["\"", "_", "d", "P"]},
+    ],
+
     "vim.autoindent": true,
     "vim.hlsearch": true,
     "vim.vimrc.enable": true,

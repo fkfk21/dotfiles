@@ -1,5 +1,11 @@
 {
     // --------------- for vim   -----------------
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-f>": false
+    },
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "j"],

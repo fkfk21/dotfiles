@@ -18,6 +18,11 @@ if test -d ~/ros2_ws
   abbr -a ros2build "cd ~/ros2_ws && colcon build --symlink-install"
 end
 
+# asdf
+if test -d ~/.asdf
+  source ~/.asdf/asdf.fish
+end
+
 # python
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 

@@ -138,5 +138,8 @@
     "C/C++ Include Guard.Prevent Decimal": false,
     "C/C++ Include Guard.File Path Pascal Case to Snake Case": true,
     "C/C++ Include Guard.Macro Type": "Filepath",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
     
 }

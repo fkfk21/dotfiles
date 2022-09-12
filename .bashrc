@@ -43,6 +43,7 @@ if [ -d "/opt/ros" ]; then
         export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
     elif [ "$ROS_VERSION" = "2" ]; then
         export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message}"
+        export RCUTILS_COLORIZED_OUTPUT=1
     fi
 fi
 

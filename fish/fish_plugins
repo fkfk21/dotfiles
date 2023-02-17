@@ -2,13 +2,12 @@ jorgebucaran/fisher
 tohn/fish-git-util
 fkfk21/theme-bobthefish
 oh-my-fish/plugin-balias
+oh-my-fish/plugin-cd
 oh-my-fish/plugin-expand
 oh-my-fish/plugin-extract
+oh-my-fish/plugin-pbcopy
 jethrokuan/z
+jethrokuan/fzf
 edc/bass
 0rax/fish-bd
-oh-my-fish/plugin-cd
-oh-my-fish/plugin-pbcopy
-jethrokuan/fzf
 laughedelic/pisces
-decors/fish-ghq

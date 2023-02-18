@@ -27,4 +27,6 @@ ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -sf ~/dotfiles/fish/bobthefish_config.fish ~/.config/fish/conf.d/bobthefish_config.fish
 ln -sf ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
 
-
+# terminator
+mkdir -p ~/.config/terminator
+ln -sf ~/dotfiles/terminator/config ~/.config/terminator/config

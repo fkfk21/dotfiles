@@ -146,4 +146,5 @@
         100
     ],
     "git.autofetch": true,
+    "git.confirmSync": false,
 }

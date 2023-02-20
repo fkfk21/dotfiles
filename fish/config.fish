@@ -27,10 +27,10 @@ end
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # matlab path
-set matlabpath /usr/local/MATLAB/R2022a/bin
-if test -d $matlabpath
-  set -x PATH $matlabpath $PATH
-end
+#set matlabpath /usr/local/MATLAB/R2022a/bin
+#if test -d $matlabpath
+#  set -x PATH $matlabpath $PATH
+#end
 
 if [ "$ROS_VERSION" = "1" ]
     source /opt/ros/noetic/share/rosbash/rosfish

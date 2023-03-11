@@ -15,6 +15,7 @@
   set -g theme_display_user yes
   set -g theme_display_hostname yes
   set -g theme_display_cmd_duration no
+  set -g theme_display_venv_default_name yes
 
   ## newline cursor
   set -g theme_newline_cursor yes

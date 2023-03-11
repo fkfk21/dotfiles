@@ -12,6 +12,7 @@ abbr -a gcom git commit -m
 abbr -a gst git status
 abbr -a ga git add .
 abbr -a fconf vim ~/.config/fish/config.fish
+abbr -a activate-poetry source '$(poetry env info --path)/bin/activate.fish'
 
 # ros2 build command
 if test -d ~/ros2_ws

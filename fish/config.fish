@@ -26,6 +26,13 @@ end
 # python
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
+# settings for Isaac Sim
+if test -d ~/.local/share/ov/pkg
+  set -x ISAACSIM_PATH $HOME/.local/share/ov/pkg/isaac_sim-2022.2.0
+  set -x ISAACSIM_PYTHON $ISAACSIM_PATH/python.sh
+  alias isaacsim_python=$ISAACSIM_PATH/python.sh
+end
+
 # matlab path
 #set matlabpath /usr/local/MATLAB/R2022a/bin
 #if test -d $matlabpath

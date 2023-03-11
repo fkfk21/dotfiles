@@ -30,7 +30,8 @@ if [ -d "/opt/ros" ]; then
     if [ "$ROS_DISTRO" = "rolling" ]; then
         source /opt/ros/rolling/setup.bash
     elif [ "$ROS_DISTRO" = "foxy" ]; then
-        source /opt/ros/foxy/setup.bash
+        # source /opt/ros/foxy/setup.bash
+        :
     elif [ "$ROS_DISTRO" = "noetic" ]; then
         source /opt/ros/noetic/setup.bash
     else
@@ -48,11 +49,24 @@ if [ -d "/opt/ros" ]; then
 fi
 
 if [ -d "$HOME/ros2_ws/install" ]; then
-  source $HOME/ros2_ws/install/setup.bash
+  # source $HOME/ros2_ws/install/setup.bash
+  :
 fi
+
+# for isaac sim
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE=~/.ros/fastdds.xml
+
 
 # Linuxbrew
 # test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# pyenv
+if [ -d "$HOME/.pyenv" ]; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # Fish Shell
 if [ -z "$FISH_VERSION" ]; then

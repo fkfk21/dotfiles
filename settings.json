@@ -147,4 +147,7 @@
     ],
     "git.autofetch": true,
     "git.confirmSync": false,
+    "[python]": {
+    },
+    "security.workspace.trust.untrustedFiles": "open",
 }

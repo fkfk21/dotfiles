@@ -148,6 +148,7 @@
     "git.autofetch": true,
     "git.confirmSync": false,
     "[python]": {
+        "editor.formatOnType": true
     },
     "security.workspace.trust.untrustedFiles": "open",
 }

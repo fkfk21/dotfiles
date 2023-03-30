@@ -68,6 +68,12 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+# cuda
+if [ -d "/usr/local/cuda" ]; then
+  export PATH="/usr/local/cuda/bin:$PATH"
+  export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+fi
+
 # Fish Shell
 if [ -z "$FISH_VERSION" ]; then
     command -v fish > /dev/null 2>&1 && exec fish

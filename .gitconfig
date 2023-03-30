@@ -6,5 +6,6 @@
 
 [core]
 	editor = vim
+	whitespace = cr-at-eol
 [ghq]
 	root = ~/ghq

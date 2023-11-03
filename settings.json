@@ -4,7 +4,8 @@
         "<C-d>": true,
         "<C-s>": false,
         "<C-z>": false,
-        "<C-f>": false
+        "<C-f>": false,
+        "<C-p>": false
     },
     "vim.insertModeKeyBindings": [
         {
@@ -151,4 +152,5 @@
         "editor.formatOnType": true
     },
     "security.workspace.trust.untrustedFiles": "open",
+    "editor.inlineSuggest.enabled": true,
 }

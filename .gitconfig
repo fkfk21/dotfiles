@@ -9,3 +9,5 @@
 	whitespace = cr-at-eol
 [ghq]
 	root = ~/ghq
+[init]
+	defaultBranch = main

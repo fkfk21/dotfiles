@@ -56,8 +56,10 @@ if [ -d "$HOME/ros2_ws/install" ]; then
 fi
 
 # for isaac sim
-export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-export FASTRTPS_DEFAULT_PROFILES_FILE=~/.ros/fastdds.xml
+if [ -e "$HOME/.ros/fastdds.xml" ]; then
+  export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+  export FASTRTPS_DEFAULT_PROFILES_FILE=$HOME/.ros/fastdds.xml
+fi
 
 
 # Linuxbrew

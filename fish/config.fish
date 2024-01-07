@@ -12,11 +12,15 @@ abbr -a gcom git commit -m
 abbr -a gst git status
 abbr -a ga git add .
 abbr -a fconf vim ~/.config/fish/config.fish
+abbr -a bconf vim ~/.bashrc
 abbr -a poetry-activate source '$(poetry env info --path)/bin/activate.fish'
 
 # ros2 build command
 if test -d ~/ros2_ws
   abbr -a ros2build "cd ~/ros2_ws && colcon build --symlink-install"
+end
+if test -d ~/rogy_ws
+  abbr -a wsbuild "cd ~/rogy_ws && colcon build --symlink-install"
 end
 
 # asdf

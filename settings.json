@@ -4,7 +4,8 @@
         "<C-d>": true,
         "<C-s>": false,
         "<C-z>": false,
-        "<C-f>": false
+        "<C-f>": false,
+        "<C-p>": false
     },
     "vim.insertModeKeyBindings": [
         {
@@ -116,7 +117,6 @@
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.semanticHighlighting.enabled": true,
-    "window.zoomLevel": 0,
     "redhat.telemetry.enabled": true,
     "terminal.integrated.fontFamily": "Cica",
     "terminal.integrated.fontSize": 17,
@@ -151,4 +151,5 @@
         "editor.formatOnType": true
     },
     "security.workspace.trust.untrustedFiles": "open",
+    "editor.inlineSuggest.enabled": true,
 }

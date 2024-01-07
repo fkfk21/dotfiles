@@ -30,8 +30,8 @@ if [ -d "/opt/ros" ]; then
     if [ "$ROS_DISTRO" = "rolling" ]; then
         source /opt/ros/rolling/setup.bash
     elif [ "$ROS_DISTRO" = "foxy" ]; then
-        # source /opt/ros/foxy/setup.bash
-        :
+        source /opt/ros/foxy/setup.bash
+
     elif [ "$ROS_DISTRO" = "noetic" ]; then
         source /opt/ros/noetic/setup.bash
     else

@@ -26,12 +26,13 @@ alias sync-doc='~/mysrc/sync-script/sync-script.sh'
 
 # ROS
 if [ -d "/opt/ros" ]; then
-    test "$ROS_DISTRO" = "" && export ROS_DISTRO="foxy"
+    test "$ROS_DISTRO" = "" && export ROS_DISTRO="humble"
     if [ "$ROS_DISTRO" = "rolling" ]; then
         source /opt/ros/rolling/setup.bash
     elif [ "$ROS_DISTRO" = "foxy" ]; then
         source /opt/ros/foxy/setup.bash
-
+    elif [ "$ROS_DISTRO" = "humble" ]; then
+        source /opt/ros/humble/setup.bash
     elif [ "$ROS_DISTRO" = "noetic" ]; then
         source /opt/ros/noetic/setup.bash
     else
@@ -54,8 +55,10 @@ if [ -d "$HOME/ros2_ws/install" ]; then
 fi
 
 # for isaac sim
-export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-export FASTRTPS_DEFAULT_PROFILES_FILE=~/.ros/fastdds.xml
+if [ -e "$HOME/.ros/fastdds.xml" ]; then
+  export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+  export FASTRTPS_DEFAULT_PROFILES_FILE=$HOME/.ros/fastdds.xml
+fi
 
 
 # Linuxbrew

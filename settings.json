@@ -17,6 +17,8 @@
         { "before": ["d"], "after": ["\"", "_", "d"]},
         { "before": ["x"], "after": ["\"", "_", "x"]},
         { "before": ["p"], "after": ["p"]},
+        { "before": ["j"], "after": ["g", "j"]},
+        { "before": ["k"], "after": ["g", "k"]},
         { "before": [">"], "commands": ["editor.action.indentLines"]},
         { "before": ["<"], "commands": ["editor.action.outdentLines"]},
     ],
@@ -93,6 +95,7 @@
             "name": "latexmk",
             "command": "latexmk",
             "args": [
+                "-pdfdvi",
                 "-synctex=1",
                 "-file-line-error",
                 "-silent",
@@ -131,8 +134,7 @@
         "/usr/lib/python3/dist-packages",
         "${env:HOME}/.local/lib/python3.8/site-packages",
     ],
-    "python.analysis.typeCheckingMode": "basic",
-    "python.analysis.stubPath": "${env:HOME}/.local/lib/python3.8/site-packages",
+    "python.analysis.stubPath": "",
     "extensions.ignoreRecommendations": true,
     "git.repositoryScanMaxDepth": 3,
     "C/C++ Include Guard.Prevent Decimal": false,
@@ -152,4 +154,8 @@
     },
     "security.workspace.trust.untrustedFiles": "open",
     "editor.inlineSuggest.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[bibtex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
 }

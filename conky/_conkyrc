@@ -80,7 +80,7 @@ ${font Montserrat Light:size=10}${color1}Hostname:${color}${font} ${alignr}$sysn
 ${font Montserrat Light:size=10}${color1}OS:${color}${font} ${alignr}${texeci 3600 lsb_release -d | awk '{$1=""; print $0}'}
 ${font Montserrat Light:size=10}${color1}UPTIME:${color}${font} ${alignr}$uptime_short
 ${font Montserrat Light:size=10}${color1}KERNEL:${color}${font} ${alignr}$kernel ${voffset 5}
-${voffset 5}
+
 ${font Cica:size=14}󿡚 ${offset -6}${font :size=15}${color}CPUs ${color}${hr 2}${color}
 ${voffset -25}
 ${font Montserrat Light:size=10}${color1}CPU:${color}${font} ${alignr}${color}AMD Ryzen 9 3900x @ 3.80GHz${color}${font}
@@ -100,27 +100,30 @@ ${font Cica:size=13}󿠖 ${offset -6}${font :size=15}${color}Network ${color}${h
 ${voffset -25}
 ${offset -4}${font Montserrat Light:size=10}${color1}IP ADDRESS:${color}${font} ${alignr}${font Cica:size=10}󿡑 ${font}${addr enp6s0}
 ${if_match "${addr enp6s0}"!="No Address"}${voffset 5}${color}${font Cica:size=13} ${offset -5}${font Montserrat Light:size=10}${font}Download ${alignr}${downspeedf enp6s0}k/s (${totaldown enp6s0})
-${color3}${downspeedgraph enp6s0 50,360 ADFF2F 32CD32 -t}
+${color3}${downspeedgraph enp6s0 40,360 ADFF2F 32CD32 -t}
 ${color}${font Cica:size=13} ${offset -5}${font Montserrat Light:size=10}${font}Upload ${alignr}${upspeedf enp6s0}k/s (${totalup enp6s0})
-${color3}${upspeedgraph enp6s0 50,360 FF0000 8B0000 -t}
-${endif}${voffset 5}
+${color3}${upspeedgraph enp6s0 40,360 FF0000 8B0000 -t}
+${endif}
 ${font Cica:size=14}󿚷 ${offset -6}${font :size=15}${color}HDD  ${color}${hr 2}${color}
 ${font :size=10}${color1}Used: ${offset 10}${color3}${fs_used /}${color1}${goto 230}Free: ${offset 10}${color3}${fs_free /}
 ${color2}${fs_bar /}
 ${font Montserrat Light:size=8}${color1}DISK I/O:${color}${font} ${alignr}$diskio
 ${voffset 2}${font Montserrat Light:size=8}${color1}READ: ${color}${font} ${goto 80}${color4}${diskiograph_read  15,280 ADFF2F 32CD32 750}${color}
 ${voffset 2}${font Montserrat Light:size=8}${color1}WRITE:${color}${font} ${goto 80}${color4}${diskiograph_write 15,280 FF0000 8B0000 750}${color}
-${voffset 3}
+
 ${font Cica:size=14} ${offset -6}${font :size=15}${color}Memory ${color}${hr 2}${color}${voffset 2}
 $font${color DimGray}RAM $alignc $mem / $memmax $alignr ${color 188f18}$memperc%
-${color 188f18}$membar${voffset 0}
-${voffset 5}${color}
+${color 188f18}$membar${voffset 0}${color}
+
 ${font Cica:size=14}󿮕 ${offset -6}${font :size=15}GPU ${color}${hr 2}${color}${voffset 2}
+${font Montserrat Light:size=9}${color1}GPU Usage:		${alignc} ${offset 50}	${color}${font}${nvidia memused}MiB / ${nvidia memmax}MiB  ${alignr}${color}${font}${nvidia gpuutil} %${voffset 3}
+${color3}${nvidiagraph memutil 30,360 FF0000 00FF00 -t}
+${font Montserrat Light:size=9}${color1}Graphics card:		${alignr} 	${color}${font}${nvidia modelname}${voffset 3}
 ${font Montserrat Light:size=9}${color1}GPU Freq.: $alignr ${color}${font}${nvidia gpufreq} Mhz${voffset 3}
 ${font Montserrat Light:size=9}${color1}Memory Freq.: $alignr ${color}${font}${nvidia memfreq} Mhz${voffset 3}
-${font Montserrat Light:size=9}${color1}Temperature: $alignr ${color}${font}${nvidia temp}°C ${voffset 3}
+${font Montserrat Light:size=9}${color1}Temperature: $alignr ${color}${font}${nvidia temp}°C $
 
-${voffset 3}${font Cica:size=14}󿚌 ${offset -6}${font :size=15}${color}Processes ${color}${hr 2}${color}
+${font Cica:size=14}󿚌 ${offset -6}${font :size=15}${color}Processes ${color}${hr 2}${color}
 ${voffset -25}
 ${font :size=10}${font Montserrat Light:size=8}${color1}TOTAL:${color}${font} ${alignr}${processes}
 ${voffset -10} 
@@ -137,5 +140,5 @@ ${font Montserrat Light:size=9}${color1}${top_mem name 8} ${color}${font} ${goto
 ${font Montserrat Light:size=9}${color1}${top_mem name 9} ${color}${font} ${goto 160}${top pid 9}  ${color}${font} ${goto 230}${top mem 9} % ${goto 310}${top cpu 9} %
 ${font Montserrat Light:size=9}${color1}${top_mem name 10} ${color}${font} ${goto 160}${top pid 10} ${color}${font} ${goto 230}${top mem 10} % ${goto 310}${top cpu 10} %
 ${voffset -5}
-${image ~/dotfiles/conky/Icons/linux.png -p 20,0 -s 50x50} ${image ~/dotfiles/conky/Icons/ubuntu.png -p 290,0 -s 50x50}
+${image ~/dotfiles/conky/Icons/linux.png -p 20,0 -s 50x50} ${image ~/dotfiles/conky/Icons/ubuntu.png -p 290,0 -s 50x50} 
 ]];

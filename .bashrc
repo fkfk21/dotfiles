@@ -26,7 +26,7 @@ alias sync-doc='~/mysrc/sync-script/sync-script.sh'
 
 # ROS
 if [ -d "/opt/ros" ]; then
-    test "$ROS_DISTRO" = "" && export ROS_DISTRO="humble"
+    test "$ROS_DISTRO" = "" && export ROS_DISTRO="foxy"
     if [ "$ROS_DISTRO" = "rolling" ]; then
         source /opt/ros/rolling/setup.bash
     elif [ "$ROS_DISTRO" = "foxy" ]; then

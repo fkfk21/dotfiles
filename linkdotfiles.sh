@@ -31,3 +31,6 @@ ln -sf ~/dotfiles/fish/completions/poetry.fish ~/.config/fish/completions/poetry
 # terminator
 mkdir -p ~/.config/terminator
 ln -sf ~/dotfiles/terminator/config ~/.config/terminator/config
+
+# conky
+ln -sf ~/dotfiles/conky/conky-startup.sh ~/.conky/conky-startup.sh

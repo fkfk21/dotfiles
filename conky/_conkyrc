@@ -76,10 +76,10 @@ ${voffset -9}
 ${alignc}${font Montserrat Light:size=10}${time %Y/%m/%d %a.}${font}${alignc}
 
 ${font Cica:size=13}󿦊 ${offset -6}${font :size=15}${color}SYSTEM ${color}${hr 2}${color}
-${font Montserrat Light:size=10}${color1}Hostname:${color}${font} ${alignr}$sysname $nodename 
-${font Montserrat Light:size=10}${color1}OS:${color}${font} ${alignr}${texeci 3600 lsb_release -d | awk '{$1=""; print $0}'}
-${font Montserrat Light:size=10}${color1}UPTIME:${color}${font} ${alignr}$uptime_short
-${font Montserrat Light:size=10}${color1}KERNEL:${color}${font} ${alignr}$kernel ${voffset 5}
+${voffset 3}${font Montserrat Light:size=10}${color1}Hostname:${color}${font} ${alignr}$sysname $nodename
+${voffset 3}${font Montserrat Light:size=10}${color1}OS:${color}${font} ${alignr}${texeci 3600 lsb_release -d | awk '{$1=""; print $0}'}
+${voffset 3}${font Montserrat Light:size=10}${color1}UPTIME:${color}${font} ${alignr}$uptime_short
+${voffset 3}${font Montserrat Light:size=10}${color1}KERNEL:${color}${font} ${alignr}$kernel ${voffset 5}
 
 ${font Cica:size=14}󿡚 ${offset -6}${font :size=15}${color}CPUs ${color}${hr 2}${color}
 ${voffset -25}
@@ -121,7 +121,7 @@ ${color3}${nvidiagraph memutil 30,360 FF0000 00FF00 -t}
 ${font Montserrat Light:size=9}${color1}Graphics card:		${alignr} 	${color}${font}${nvidia modelname}${voffset 3}
 ${font Montserrat Light:size=9}${color1}GPU Freq.: $alignr ${color}${font}${nvidia gpufreq} Mhz${voffset 3}
 ${font Montserrat Light:size=9}${color1}Memory Freq.: $alignr ${color}${font}${nvidia memfreq} Mhz${voffset 3}
-${font Montserrat Light:size=9}${color1}Temperature: $alignr ${color}${font}${nvidia temp}°C $
+${font Montserrat Light:size=9}${color1}Temperature: $alignr ${color}${font}${nvidia temp}°C
 
 ${font Cica:size=14}󿚌 ${offset -6}${font :size=15}${color}Processes ${color}${hr 2}${color}
 ${voffset -25}

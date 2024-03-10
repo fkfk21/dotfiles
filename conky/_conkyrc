@@ -71,9 +71,9 @@ conky.config ={
 
 
 conky.text = [[
-${alignc}${color1}${font Montserrat Bold:size=20}${time %H:%M:%S}${font}${color}${alignc}
+${alignc}${color1}${font Montserrat Bold:size=25}${time %H:%M:%S}${font}${color}${alignc}
 ${voffset -9}
-${alignc}${font Montserrat Light:size=10}${time %Y/%m/%d %a.}${font}${alignc}
+${alignc}${font Montserrat Light:size=12}${time %A | %B %d, %Y }${font}${alignc}
 
 ${font Cica:size=13}󿦊 ${offset -6}${font :size=15}${color}SYSTEM ${color}${hr 2}${color}
 ${voffset 3}${font Montserrat Light:size=10}${color1}Hostname:${color}${font} ${alignr}$sysname $nodename
@@ -140,5 +140,5 @@ ${font Montserrat Light:size=9}${color1}${top_mem name 8} ${color}${font} ${goto
 ${font Montserrat Light:size=9}${color1}${top_mem name 9} ${color}${font} ${goto 160}${top pid 9}  ${color}${font} ${goto 230}${top mem 9} % ${goto 310}${top cpu 9} %
 ${font Montserrat Light:size=9}${color1}${top_mem name 10} ${color}${font} ${goto 160}${top pid 10} ${color}${font} ${goto 230}${top mem 10} % ${goto 310}${top cpu 10} %
 ${voffset -5}
-${image ~/dotfiles/conky/Icons/linux.png -p 20,0 -s 50x50} ${image ~/dotfiles/conky/Icons/ubuntu.png -p 290,0 -s 50x50} 
+${image ~/dotfiles/conky/Icons/linux.png -p 0,5 -s 60x60} ${image ~/dotfiles/conky/Icons/ubuntu.png -p 300,5 -s 60x60} 
 ]];

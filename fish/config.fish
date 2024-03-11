@@ -31,6 +31,7 @@ end
 
 # alias colcon='__colcon_find_workspace_dir > /dev/null && cd (__colcon_find_workspace_dir); command colcon'
 # alias roscd="ccd -o"
+alias cless='ccze -A | less -R'
 
 # add abbr
 abbr -a gcom git commit -m 

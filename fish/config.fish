@@ -54,6 +54,12 @@ if test -d ~/.asdf
   source ~/.asdf/asdf.fish
 end
 
+# zoxide (command zi)
+if type zoxide > /dev/null 2>&1
+  zoxide init fish | source
+end
+
+
 # python
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 

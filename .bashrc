@@ -49,12 +49,21 @@ if [ -d "/opt/ros" ]; then
     fi
 fi
 
+##########################################################################
+#################### personal ros2 workspace setting  ####################
+##########################################################################
 if [ -d "$HOME/ros2_ws/install" ]; then
   # source $HOME/ros2_ws/install/setup.bash
   :
 fi
 
-# for isaac sim
+if [ -d "$HOME/ws_moveit/install" ]; then
+  source $HOME/ws_moveit/install/setup.bash
+fi
+
+##########################################################################
+###################            ISAAC SIM           #######################
+##########################################################################
 if [ -e "$HOME/.ros/fastdds.xml" ]; then
   export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
   export FASTRTPS_DEFAULT_PROFILES_FILE=$HOME/.ros/fastdds.xml

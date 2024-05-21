@@ -64,7 +64,7 @@ end
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # settings for Isaac Sim
-set -x ISAAC_SIM_VERSION 2022.2.1
+set -x ISAAC_SIM_VERSION 2023.1.1
 if test -d ~/.local/share/ov/pkg
   set -x ISAACSIM_PATH $HOME/.local/share/ov/pkg/isaac_sim-$ISAAC_SIM_VERSION
   set -x ISAACSIM_PYTHON $ISAACSIM_PATH/python.sh

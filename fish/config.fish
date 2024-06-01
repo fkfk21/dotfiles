@@ -39,7 +39,8 @@ abbr -a gst git status
 abbr -a ga git add .
 abbr -a fconf vim ~/.config/fish/config.fish
 abbr -a bconf vim ~/.bashrc
-abbr -a poetry-activate source '$(poetry env info --path)/bin/activate.fish'
+abbr -a pa source '(poetry env info --path)/bin/activate.fish'
+abbr -a poetry-activate source '(poetry env info --path)/bin/activate.fish'
 
 # ros2 build command
 if test -d ~/ros2_ws

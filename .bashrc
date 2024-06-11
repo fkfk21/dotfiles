@@ -88,5 +88,9 @@ fi
 
 # Fish Shell
 if [ -z "$FISH_VERSION" ]; then
-    command -v fish > /dev/null 2>&1 && exec fish
+    if [ -z "$IS_GNOME_TERMINAL" ]; then
+      command -v fish > /dev/null 2>&1 && exec fish
+    else
+      exec zsh
+    fi
 fi

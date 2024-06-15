@@ -41,7 +41,11 @@ abbr -a fconf vim ~/.config/fish/config.fish
 abbr -a bconf vim ~/.bashrc
 abbr -a pa source '(poetry env info --path)/bin/activate.fish'
 abbr -a poetry-activate source '(poetry env info --path)/bin/activate.fish'
+<<<<<<< Updated upstream
 abbr -a apt-upg "sudo apt list --upgradable | grep keyword | awk -F/ '{print \$1}' | xargs sudo apt install -y"
+=======
+abbr -a pcd cd '(dirname $VIRTUAL_ENV)'
+>>>>>>> Stashed changes
 
 # ros2 build command
 if test -d ~/ros2_ws

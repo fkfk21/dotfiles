@@ -72,7 +72,7 @@ if test -d ~/.local/share/ov/pkg
   set -x ISAACSIM_PATH $HOME/.local/share/ov/pkg/$ISAAC_SIM_VERSION
   set -x ISAACSIM_PYTHON $ISAACSIM_PATH/python.sh
   alias iscpy=$ISAACSIM_PATH/python.sh
-  abbr -a cisc cd $ISAACSIM_PATH
+  abbr -a cisaac cd $ISAACSIM_PATH
 end
 
 # matlab path

@@ -67,11 +67,12 @@ end
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # settings for Isaac Sim
-set -x ISAAC_SIM_VERSION 4.0.0
+set -x ISAAC_SIM_VERSION isaac-sim-4.0.0
 if test -d ~/.local/share/ov/pkg
-  set -x ISAACSIM_PATH $HOME/.local/share/ov/pkg/isaac_sim-$ISAAC_SIM_VERSION
+  set -x ISAACSIM_PATH $HOME/.local/share/ov/pkg/$ISAAC_SIM_VERSION
   set -x ISAACSIM_PYTHON $ISAACSIM_PATH/python.sh
-  alias isaacsim_python=$ISAACSIM_PATH/python.sh
+  alias iscpy=$ISAACSIM_PATH/python.sh
+  abbr -a cisc cd $ISAACSIM_PATH
 end
 
 # matlab path

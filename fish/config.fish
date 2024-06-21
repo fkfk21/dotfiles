@@ -40,9 +40,9 @@ abbr -a ga git add .
 abbr -a fconf vim ~/.config/fish/config.fish
 abbr -a bconf vim ~/.bashrc
 abbr -a pa source '(poetry env info --path)/bin/activate.fish'
+abbr -a pcd cd '(dirname $VIRTUAL_ENV)'
 abbr -a poetry-activate source '(poetry env info --path)/bin/activate.fish'
 abbr -a apt-upg "sudo apt list --upgradable | grep keyword | awk -F/ '{print \$1}' | xargs sudo apt install -y"
-abbr -a pcd cd '(dirname $VIRTUAL_ENV)'
 
 # ros2 build command
 if test -d ~/ros2_ws
@@ -67,7 +67,7 @@ end
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # settings for Isaac Sim
-set -x ISAAC_SIM_VERSION isaac-sim-4.0.0
+set -x ISAAC_SIM_VERSION 4.0.0
 if test -d ~/.local/share/ov/pkg
   set -x ISAACSIM_PATH $HOME/.local/share/ov/pkg/$ISAAC_SIM_VERSION
   set -x ISAACSIM_PYTHON $ISAACSIM_PATH/python.sh

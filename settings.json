@@ -14,13 +14,108 @@
         },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
-        { "before": ["d"], "after": ["\"", "_", "d"]},
-        { "before": ["x"], "after": ["\"", "_", "x"]},
-        { "before": ["p"], "after": ["p"]},
-        { "before": ["j"], "after": ["g", "j"]},
-        { "before": ["k"], "after": ["g", "k"]},
-        { "before": [">"], "commands": ["editor.action.indentLines"]},
-        { "before": ["<"], "commands": ["editor.action.outdentLines"]},
+        {
+            "before": [
+                "d"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d"
+            ]
+        },
+        {
+            "before": [
+                "x"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "x"
+            ]
+        },
+        {
+            "before": [
+                "p"
+            ],
+            "after": [
+                "p"
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "n"
+            ],
+            "after": [
+                "n",
+                "z",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "N"
+            ],
+            "after": [
+                "N",
+                "z",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "*"
+            ],
+            "after": [
+                "*",
+                "z",
+                "z"
+            ]
+        },
+        {
+            "before": [
+                "#"
+            ],
+            "after": [
+                "#",
+                "z",
+                "z"
+            ]
+        }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         { "before": ["d"], "after": ["\"", "_", "d"]},
@@ -114,9 +209,7 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
 
-    "workbench.iconTheme": "vscode-icons",
 
-    "vsicons.dontShowNewVersionMessage": true,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.semanticHighlighting.enabled": true,
@@ -158,5 +251,6 @@
     "[bibtex]": {
         "editor.defaultFormatter": "James-Yu.latex-workshop"
     },
-    "cmake.showOptionsMovedNotification": false
+    "cmake.showOptionsMovedNotification": false,
+    "workbench.iconTheme": "vscode-icons"
 }

@@ -94,3 +94,4 @@ if [ -z "$FISH_VERSION" ]; then
       exec zsh
     fi
 fi
+. "$HOME/.cargo/env"

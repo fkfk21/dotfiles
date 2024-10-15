@@ -35,7 +35,7 @@ conky.config ={
   maximum_width = 360,
 
   alignment = 'top_right',
-  gap_x = 1452,
+  gap_x = 0,
   gap_y = 15,
 
   -- GRAPHICS SETTINGS
@@ -89,8 +89,7 @@ ${color3}${cpugraph 50,360 00FFFF 5000a0 -t}
 ${voffset -15}
 ${font Montserrat Light:size=9}${color1}01 - 06:${color}${font} ${goto 90}${cpu cpu1}% ${goto 140}${cpu cpu2 }% ${goto 190}${cpu cpu3 }% ${goto 240}${cpu cpu4 }% ${goto 290}${cpu cpu5 }% ${goto 340}${cpu cpu6 }%
 ${font Montserrat Light:size=9}${color1}07 - 12:${color}${font} ${goto 90}${cpu cpu7}% ${goto 140}${cpu cpu8 }% ${goto 190}${cpu cpu9 }% ${goto 240}${cpu cpu10 }% ${goto 290}${cpu cpu11 }% ${goto 340}${cpu cpu12 }%
-${font Montserrat Light:size=9}${color1}13 - 18:${color}${font} ${goto 90}${cpu cpu13}% ${goto 140}${cpu cpu14 }% ${goto 190}${cpu cpu15 }% ${goto 240}${cpu cpu16 }% ${goto 290}${cpu cpu17 }% ${goto 340}${cpu cpu18 }%
-${font Montserrat Light:size=9}${color1}19 - 24:${color}${font} ${goto 90}${cpu cpu19}% ${goto 140}${cpu cpu20}% ${goto 190}${cpu cpu21}% ${goto 240}${cpu cpu22}% ${goto 290}${cpu cpu23 }% ${goto 340}${cpu cpu24 }%
+${font Montserrat Light:size=9}${color1}13 - 18:${color}${font} ${goto 90}${cpu cpu13}% ${goto 140}${cpu cpu14 }% ${goto 190}${cpu cpu15 }% ${goto 240}${cpu cpu16 }%
 ${voffset -10}
 ${font Montserrat:size=10}${color1}CPU Usage: $cpu%  ${color7}${cpubar cpu0 15}
 ${voffset -8}

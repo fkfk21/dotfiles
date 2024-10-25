@@ -61,6 +61,10 @@ if [ -d "$HOME/ws_moveit/install" ]; then
   source $HOME/ws_moveit/install/setup.bash
 fi
 
+if [ -d "$HOME/research_ws/isaac_sim_ws/install" ]; then
+  source $HOME/research_ws/isaac_sim_ws/install/setup.bash
+fi
+
 ##########################################################################
 ###################            ISAAC SIM           #######################
 ##########################################################################
@@ -84,6 +88,10 @@ fi
 if [ -d "/usr/local/cuda" ]; then
   export PATH="/usr/local/cuda/bin:$PATH"
   export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+fi
+
+if [ -d "$HOME/.cargo" ]; then
+  source "$HOME/.cargo/env"
 fi
 
 # Fish Shell

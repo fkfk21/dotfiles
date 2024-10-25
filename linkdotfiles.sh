@@ -17,9 +17,9 @@ else
 fi
 
 # vscode
-mkdir -p ~/.config/Code/User
-ln -sf ~/dotfiles/settings.json ~/.config/Code/User/settings.json
-ln -sf ~/dotfiles/keybindings.json ~/.config/Code/User/keybindings.json
+# mkdir -p ~/.config/Code/User
+# ln -sf ~/dotfiles/settings.json ~/.config/Code/User/settings.json
+# ln -sf ~/dotfiles/keybindings.json ~/.config/Code/User/keybindings.json
 
 # fish
 mkdir -p ~/.config/fish/conf.d

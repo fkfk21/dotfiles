@@ -5,7 +5,9 @@
         "<C-s>": false,
         "<C-z>": false,
         "<C-f>": false,
-        "<C-p>": false
+        "<C-p>": false,
+        "<C-q>": false,
+        "<C-m>": false,
     },
     "vim.insertModeKeyBindings": [
         {
@@ -135,6 +137,10 @@
         "${env:HOME}/.local/lib/python3.8/site-packages",
     ],
     "python.analysis.stubPath": "",
+    "flake8.args": [
+        "--max-line-length=100"
+    ],
+
     "extensions.ignoreRecommendations": true,
     "git.repositoryScanMaxDepth": 3,
     "C/C++ Include Guard.Prevent Decimal": false,
@@ -150,7 +156,7 @@
     "git.autofetch": true,
     "git.confirmSync": false,
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
     },
     "security.workspace.trust.untrustedFiles": "open",
     "editor.inlineSuggest.enabled": true,
@@ -158,5 +164,26 @@
     "[bibtex]": {
         "editor.defaultFormatter": "James-Yu.latex-workshop"
     },
-    "cmake.showOptionsMovedNotification": false
+    "cmake.showOptionsMovedNotification": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "window.zoomLevel": -1,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.userWords": [
+        "pdfs"
+    ],
+    "explorer.confirmPasteNative": false,
+    "pddlParser.executableOrService": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/Parser",
+    "pddl.validatorPath": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/Validate",
+    "pddl.valueSeqPath": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/ValueSeq",
+    "pddl.valStepPath": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/ValStep",
+    "files.autoSave": "afterDelay",
+    "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
 }

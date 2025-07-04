@@ -38,11 +38,13 @@ abbr -a gcom git commit -m
 abbr -a gst git status
 abbr -a ga git add .
 abbr -a fconf vim ~/.config/fish/config.fish
+abbr -a sfconf source ~/.config/fish/config.fish
 abbr -a bconf vim ~/.bashrc
 abbr -a pa source '(poetry env info --path)/bin/activate.fish'
 abbr -a pcd cd '(dirname $VIRTUAL_ENV)'
 abbr -a poetry-activate source '(poetry env info --path)/bin/activate.fish'
 abbr -a apt-upg "sudo apt list --upgradable | grep keyword | awk -F/ '{print \$1}' | xargs sudo apt install -y"
+abbr -a grl grep -rl word ./
 
 # ros2 build command
 if test -d ~/ros2_ws

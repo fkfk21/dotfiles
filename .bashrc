@@ -61,6 +61,10 @@ if [ -d "$HOME/ws_moveit/install" ]; then
   source $HOME/ws_moveit/install/setup.bash
 fi
 
+if [ -d "$HOME/research_ws/isaac_sim_ws/install" ]; then
+  source $HOME/research_ws/isaac_sim_ws/install/setup.bash
+fi
+
 ##########################################################################
 ###################            ISAAC SIM           #######################
 ##########################################################################
@@ -74,17 +78,22 @@ fi
 # test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # pyenv
-if [ -d "$HOME/.pyenv" ]; then
-  export PATH="$HOME/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
+# if [ -d "$HOME/.pyenv" ]; then
+#   export PATH="$HOME/.pyenv/bin:$PATH"
+#   eval "$(pyenv init -)"
+#   # eval "$(pyenv virtualenv-init -)"
+# fi
 
 # cuda
 if [ -d "/usr/local/cuda" ]; then
   export PATH="/usr/local/cuda/bin:$PATH"
   export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 fi
+
+if ! echo "${LD_LIBRARY_PATH:-}" | grep -Eq '(^|:)/usr/local/lib($|:)'; then
+  export LD_LIBRARY_PATH="/usr/local/lib${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}"
+fi
+
 
 # Fish Shell
 if [ -z "$FISH_VERSION" ]; then
@@ -94,3 +103,4 @@ if [ -z "$FISH_VERSION" ]; then
       exec zsh
     fi
 fi
+

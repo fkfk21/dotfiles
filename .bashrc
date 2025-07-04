@@ -95,6 +95,10 @@ if ! echo "${LD_LIBRARY_PATH:-}" | grep -Eq '(^|:)/usr/local/lib($|:)'; then
 fi
 
 
+if [ -d "$HOME/.cargo" ]; then
+  source "$HOME/.cargo/env"
+fi
+
 # Fish Shell
 if [ -z "$FISH_VERSION" ]; then
     if [ -z "$IS_GNOME_TERMINAL" ]; then
@@ -103,4 +107,3 @@ if [ -z "$FISH_VERSION" ]; then
       exec zsh
     fi
 fi
-

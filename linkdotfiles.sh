@@ -24,10 +24,13 @@ fi
 # fish
 mkdir -p ~/.config/fish/conf.d
 mkdir -p ~/.config/fish/completions
+mkdir -p ~/.config/fish/functions
 ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -sf ~/dotfiles/fish/bobthefish_config.fish ~/.config/fish/conf.d/bobthefish_config.fish
 ln -sf ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
 ln -sf ~/dotfiles/fish/completions/poetry.fish ~/.config/fish/completions/poetry.fish
+ln -sf ~/dotfiles/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
+ln -sf ~/dotfiles/fish/functions/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 
 # terminator
 mkdir -p ~/.config/terminator

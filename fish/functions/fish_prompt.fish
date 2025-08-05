@@ -1,7 +1,6 @@
 # name: bobthefish
 #
 # bobthefish is a Powerline-style, Git-aware fish theme optimized for awesome.
-#
 # You will need a Powerline-patched font for this to work:
 #
 #     https://powerline.readthedocs.org/en/master/installation.html#patched-fonts
@@ -1148,9 +1147,10 @@ end
 # Apply theme
 # ==============================
 
-function __bobthefish_postexec --on-event fish_prompt
+function __bobthefish_postexec --on-event fish_prompt --on-event fish_cancel
     echo ""
 end
+
 
 function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
     # echo ""

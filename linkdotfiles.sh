@@ -36,3 +36,13 @@ ln -sf ~/dotfiles/terminator/config ~/.config/terminator/config
 # conky
 mkdir -p ~/.conky/
 ln -sf ~/dotfiles/conky/conky-startup.sh ~/.conky/conky-startup.sh
+
+# neovim
+mkdir -p ~/.config/nvim
+ln -sf ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+
+
+# tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+#### please execute prefix + I after starting tmux

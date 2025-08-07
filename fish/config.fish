@@ -78,6 +78,14 @@ if test -d ~/.local/share/ov/pkg
   abbr -a cisaac cd $ISAACSIM_PATH
 end
 
+
+# webots
+if test -d /usr/local/webots
+  set -x WEBOTS_HOME /usr/local/webots
+  set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $WEBOTS_HOME/lib/controller
+  set -x PATH $PATH $WEBOTS_HOME
+end
+
 # matlab path
 #set matlabpath /usr/local/MATLAB/R2022a/bin
 #if test -d $matlabpath

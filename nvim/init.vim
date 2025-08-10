@@ -19,7 +19,7 @@ if &runtimepath !~# '/dein.vim'
     endif
   endif
   execute 'set runtimepath^='
-        \ .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
+      \ .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
 endif
 
 """"" dein configuration
@@ -55,10 +55,18 @@ call dein#add('s1n7ax/nvim-window-picker')
 " インデント
 call dein#add('lukas-reineke/indent-blankline.nvim' , {'rev': 'v3.6.2'})
 
-" Color Theme (syntax highlighting)
+" Color Schemes (syntax highlighting)
 call dein#add('nvim-treesitter/nvim-treesitter')
+call dein#add('vim-scripts/scrollcolors')
 call dein#add('sainnhe/gruvbox-material')
-" call dein#add('morhetz/gruvbox')
+call dein#add('morhetz/gruvbox')
+call dein#add('rafi/awesome-vim-colorschemes')
+call dein#add('tomasiser/vim-code-dark')
+call dein#add('folke/tokyonight.nvim')
+call dein#add('EdenEast/nightfox.nvim')
+call dein#add('nyoom-engineering/oxocarbon.nvim')
+call dein#add('rebelot/kanagawa.nvim')
+call dein#add('catppuccin/nvim')
 
 " Airline
 call dein#add('vim-airline/vim-airline')

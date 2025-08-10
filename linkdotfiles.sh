@@ -42,7 +42,7 @@ ln -sf ~/dotfiles/conky/conky-startup.sh ~/.conky/conky-startup.sh
 
 # neovim
 mkdir -p ~/.config/nvim
-ln -sf ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/dotfiles/nvim/ ~/.config/nvim
 
 
 # tmux

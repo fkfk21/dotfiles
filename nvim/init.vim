@@ -1,68 +1,8 @@
-set nocompatible
-
-" gyousuuhyouji
-  set tabstop=2
-  set shiftwidth=2
-  set expandtab
-  set smartindent
-
-" Search setting
-  set ignorecase        " distinguish uppercase letter and lowercase letter
-  set smartcase         " if there is uppercase in serch letter, distinguish
-  set incsearch         " incremental serach
-  set hlsearch          " hilight
-
-
-" Edit Settings
-  set shiftround        " '>'or'<' indent become 'shiftwidth' multiple
-  set infercase         " do not distinguish upper or not when complement
-  set hidden            " hide buffer instead of close to leave undo history
-  set switchbuf=useopen " open buffer which is opend already instead of new
-  set showmatch         " display highlight corresponding backets
-  set matchtime=3       " display corresponding backets highlight time = 3
-
-  set matchpairs& matchpairs+=<:>   " add backets match pair < >
-
-  set backspace=indent,eol,start    " backspace can delete all type
-
-  " unuse swap file & backup file
-  set nowritebackup
-  set nobackup
-  set noswapfile
-
-" Display settings
-  set number            " display row number
- 
-" Macro and key setting
-  " jj become esc
-  inoremap jj <ESC>
-  " esc * 2 delete highlight
-  nmap <silent> <ESC><ESC> :nohlsearch<CR>
-  " change paste command
-  " nnoremap p P
-
-" move center search word
-  nnoremap n nzz
-  nnoremap N Nzz
-  nnoremap * *zz
-  nnoremap # #z
-  nnoremap g* g*zz
-  nnoremap g#  g#zz
-
-" make delete command not yunk
-  nnoremap d "_d
-  nnoremap x "_x
-  xnoremap d "_d
-  xnoremap p "_dP
-
-" indent settings
-  nnoremap > >>
-  nnoremap < <<
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          dein 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" settings for nvim version 0.7.2
+lua vim.loader.enable()
 
 """"" dein installation
 let s:DEIN_VERSION = '3.1'
@@ -85,16 +25,44 @@ endif
 """"" dein configuration
 let s:dein_base = '~/.cache/dein'
 let s:dein_src = '~/.cache/dein/repos/github.com/Shougo/dein.vim'
-
 " Set dein runtime path
 execute 'set runtimepath+=' . s:dein_src
 
-" dein initialization
+""" dein initialization
 call dein#begin(s:dein_base)
-
 call dein#add(s:dein_src)
 
 "" Add plugins
+" call dein#add('Shougo/neosnippet.vim')
+
+" 補完用
+call dein#add('neoclide/coc.nvim', {'rev': 'v0.0.82'})
+
+" 複数行編集用プラグイン
+call dein#add('mg979/vim-visual-multi')
+
+" Plugins for neo-tree
+call dein#add('nvim-lua/plenary.nvim')
+call dein#add('MunifTanjim/nui.nvim')
+call dein#add('nvim-neo-tree/neo-tree.nvim', {
+      \ 'depends': ['nvim-lua/plenary.nvim', 'MunifTanjim/nui.nvim'],
+      \ })
+call dein#add('nvim-tree/nvim-web-devicons')
+call dein#add('antosha417/nvim-lsp-file-operations')
+call dein#add('folke/snacks.nvim')
+call dein#add('s1n7ax/nvim-window-picker')
+
+" インデント
+call dein#add('lukas-reineke/indent-blankline.nvim' , {'rev': 'v3.6.2'})
+
+" Color Theme (syntax highlighting)
+call dein#add('nvim-treesitter/nvim-treesitter')
+call dein#add('sainnhe/gruvbox-material')
+" call dein#add('morhetz/gruvbox')
+
+" Airline
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 
 
 call dein#end()
@@ -113,12 +81,8 @@ if has('syntax')
 endif
 
 " Uncomment if you want to install not-installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
-
-
-
-
+if dein#check_install()
+  call dein#install()
+endif
 
 

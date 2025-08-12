@@ -115,6 +115,7 @@
     // "matlab.mlintpath": "/usr/local/MATLAB/R2020a/bin/glnxa64/mlint",
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
+    "editor.editContext": false,
 
     "workbench.iconTheme": "vscode-icons",
 
@@ -185,4 +186,5 @@
     "pddl.valStepPath": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/ValStep",
     "files.autoSave": "afterDelay",
     "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+    "python.defaultInterpreterPath": "/bin/python3",
 }

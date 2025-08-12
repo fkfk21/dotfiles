@@ -29,3 +29,5 @@
 
 " Display settings
   set relativenumber     " display row number relatively
+  set winblend=30
+  set pumblend=30

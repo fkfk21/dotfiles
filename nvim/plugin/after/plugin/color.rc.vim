@@ -16,3 +16,6 @@ colorscheme kanagawa-wave
 " hi StatusLine cterm=NONE gui=NONE
 " hi StatusLineNC cterm=NONE gui=NONE
 
+" Transparent
+" highlight Normal guibg=NONE ctermbg=NONE
+" highlight NonText guibg=NONE ctermbg=NONE

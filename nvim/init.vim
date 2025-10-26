@@ -41,6 +41,9 @@ call dein#add('neoclide/coc.nvim', {'rev': 'v0.0.82'})
 " 複数行編集用プラグイン
 call dein#add('mg979/vim-visual-multi')
 
+" コメントアウト制御
+call dein#add('numToStr/Comment.nvim')
+
 " Plugins for neo-tree
 call dein#add('nvim-lua/plenary.nvim')
 call dein#add('MunifTanjim/nui.nvim')

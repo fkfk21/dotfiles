@@ -99,6 +99,8 @@ if [ -d "$HOME/.cargo" ]; then
   source "$HOME/.cargo/env"
 fi
 
+export WANDB_USERNAME=fkfk21
+
 # Fish Shell
 if [ -z "$FISH_VERSION" ]; then
     if [ -z "$IS_GNOME_TERMINAL" ]; then

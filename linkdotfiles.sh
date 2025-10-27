@@ -29,6 +29,7 @@ ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -sf ~/dotfiles/fish/bobthefish_config.fish ~/.config/fish/conf.d/bobthefish_config.fish
 ln -sf ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
 ln -sf ~/dotfiles/fish/completions/poetry.fish ~/.config/fish/completions/poetry.fish
+ln -sf ~/dotfiles/fish/completions/codex.fish ~/.config/fish/completions/codex.fish
 ln -sf ~/dotfiles/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 ln -sf ~/dotfiles/fish/functions/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 

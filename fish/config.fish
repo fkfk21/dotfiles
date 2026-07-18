@@ -100,3 +100,14 @@ else if [ "$ROS_VERSION" = "2" ]
     register-python-argcomplete --shell fish ros2 | source
     register-python-argcomplete --shell fish colcon | source
 end
+
+if type gh > /dev/null 2>&1
+  eval 
+end
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+set -gx MAMBA_EXE "/home/fukuda/.local/bin/micromamba"
+set -gx MAMBA_ROOT_PREFIX "/home/fukuda/micromamba"
+$MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
+# <<< mamba initialize <<<

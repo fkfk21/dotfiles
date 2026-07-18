@@ -21,3 +21,9 @@
 " indent settings
   nnoremap > >>
   nnoremap < <<
+
+" move from neo-tree back to editor
+augroup NeoTreeKeymaps
+  autocmd!
+  autocmd FileType neo-tree nnoremap <silent><buffer> <C-f> <C-w>p
+augroup END

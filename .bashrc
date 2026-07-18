@@ -10,7 +10,7 @@ esac
 source /etc/skel/.bashrc
 
 # Add user's private bin to PATH
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
 
 # common bash history across multiple terminals
 # note: if the prompt is slow to redisplay, you may be useful to disable this
@@ -71,6 +71,7 @@ fi
 if [ -e "$HOME/.ros/fastdds.xml" ]; then
   export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
   export FASTRTPS_DEFAULT_PROFILES_FILE=$HOME/.ros/fastdds.xml
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/humble/lib
 fi
 
 

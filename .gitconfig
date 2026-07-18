@@ -7,8 +7,6 @@
 [core]
 	editor = vim
 	whitespace = cr-at-eol
-[ghq]
-	root = ~/ghq
 [init]
 	defaultBranch = main
 [filter "lfs"]
@@ -16,3 +14,10 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[credential]
+	helper = store
+[ghq]
+	root = /home/fukuda/projects
+	root = /home/fukuda/mysrc/
+	root = /home/fukuda/tamp_ws/src
+	root = /home/fukuda/ghq

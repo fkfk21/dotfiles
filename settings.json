@@ -181,13 +181,14 @@
         "pdfs"
     ],
     "explorer.confirmPasteNative": false,
+    "explorer.compactFolders": false,
     "pddlParser.executableOrService": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/Parser",
     "pddl.validatorPath": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/Validate",
     "pddl.valueSeqPath": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/ValueSeq",
     "pddl.valStepPath": "/home/fkfk21/.config/Code/User/globalStorage/jan-dolejsi.pddl/val/Val-20210401.1-Linux/bin/ValStep",
     "files.autoSave": "afterDelay",
     "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
-    "python.defaultInterpreterPath": "/bin/python3",
+    "python.defaultInterpreterPath": ".venv/bin/python",
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "github.copilot.nextEditSuggestions.enabled": true,
@@ -203,4 +204,45 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "github.copilot.selectedCompletionModel": "",
+    "yaml.schemas": {
+        "file:///home/fukuda/.vscode/extensions/continue.continue-1.2.11-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fkfk21/.vscode/extensions/continue.continue-1.2.14-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fukuda/.vscode/extensions/continue.continue-1.2.14-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fukuda/.vscode/extensions/continue.continue-1.2.15-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fkfk21/.vscode/extensions/continue.continue-1.2.15-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fukuda/.vscode/extensions/continue.continue-1.2.16-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fkfk21/.vscode/extensions/continue.continue-1.2.16-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fukuda/.vscode/extensions/continue.continue-1.2.17-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fkfk21/.vscode/extensions/continue.continue-1.2.17-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fukuda/.vscode/extensions/continue.continue-1.2.22-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/fukuda/.vscode/extensions/continue.continue-2.0.0-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ]
+    },
+    "continue.enableTabAutocomplete": false,
+    "continue.showInlineTip": false,
+    "git-graph.maxDepthOfRepoSearch": 5,
+    "workbench.colorTheme": "Dark Modern",
+    "diffEditor.renderSideBySide": false,
 }

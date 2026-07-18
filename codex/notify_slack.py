@@ -41,12 +41,17 @@ def preview_text(value: object, limit: int) -> tuple[str, bool]:
 def notification_request(notification: dict[str, Any]) -> str:
     messages = notification.get("input-messages")
     if isinstance(messages, list):
-        parts = [
-            message.strip() if isinstance(message, str) else json.dumps(message, ensure_ascii=False)
-            for message in messages
-        ]
-        request = "\n\n".join(part for part in parts if part)
-        return request or "Request unavailable."
+        for message in reversed(messages):
+            if message is None:
+                continue
+            request = (
+                message.strip()
+                if isinstance(message, str)
+                else json.dumps(message, ensure_ascii=False)
+            )
+            if request:
+                return request
+        return "Request unavailable."
     if messages:
         return str(messages).strip() or "Request unavailable."
     return "Request unavailable."

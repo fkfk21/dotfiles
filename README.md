@@ -17,10 +17,36 @@ import keymap settings by keymap.txt
 
 mozc settings > Keymap > Customize > Import from File
 
+### Codex
+
+Configure Codex notification and link optional user-managed files and skills by:
+
+```bash
+./linkcodex.sh
+```
+
+The script preserves `~/.codex/config.toml` as a regular file. It adds
+`notify = ["codex-slack-notify"]` at the end of the root-key section, before
+the first TOML table, and creates a timestamped backup before changing it.
+
+Set `CODEX_SLACK_NOTIFY_WEBHOOK_URL` in the Git-ignored `secrets/slack.env`,
+open a new shell, and restart Codex. Turn-completion notifications are sent by
+`codex/notify_slack.py`.
+
+Notifications contain the project, Git branch, abbreviated request/result, and
+completion time. `CODEX_SLACK_NOTIFY_PREVIEW_LENGTH` controls the preview
+length and defaults to 200 characters.
+
+To post unabridged text as replies in the same Slack thread, also set
+`CODEX_SLACK_NOTIFY_BOT_TOKEN` and `CODEX_SLACK_NOTIFY_CHANNEL_ID` in
+`secrets/slack.env`. The Slack app needs the `chat:write` scope and must have
+access to the destination channel. Incoming webhooks do not return the parent
+message timestamp, so webhook-only configuration sends the abbreviated
+top-level message without thread replies.
+
+Authentication, history, logs, caches, sessions, and SQLite state under
+`~/.codex` are intentionally not tracked.
+
 
 
 ## neovim
-
-
-
-

@@ -1,1 +1,3 @@
 settings.json
+/secrets/*.env
+__pycache__/

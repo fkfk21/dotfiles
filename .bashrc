@@ -12,6 +12,12 @@ source /etc/skel/.bashrc
 # Add user's private bin to PATH
 export PATH="$PATH:$HOME/.local/bin"
 
+# Codex Slack completion notifications.
+# Keep the webhook in the ignored local file, not in Git.
+if [ -r "$HOME/dotfiles/secrets/slack.env" ]; then
+    source "$HOME/dotfiles/secrets/slack.env"
+fi
+
 # common bash history across multiple terminals
 # note: if the prompt is slow to redisplay, you may be useful to disable this
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

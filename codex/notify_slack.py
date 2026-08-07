@@ -133,6 +133,7 @@ def build_messages(
     completed_at: str | None = None,
 ) -> tuple[str, list[str]]:
     cwd = str(notification.get("cwd") or "")
+    directory = cwd or "unknown"
     project, branch = project_context(cwd)
     request = notification_request(notification)
     result = str(notification.get("last-assistant-message") or "Result unavailable.").strip()
@@ -144,6 +145,7 @@ def build_messages(
         (
             "✅ Codex task completed",
             f"Project: {escape_slack_text(project)}",
+            f"Directory: {escape_slack_text(directory)}",
             f"Branch: {escape_slack_text(branch)}",
             f"Request: {escape_slack_text(request_preview)}",
             f"Result: {escape_slack_text(result_preview)}",

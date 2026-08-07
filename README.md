@@ -33,10 +33,11 @@ Set `CODEX_SLACK_NOTIFY_WEBHOOK_URL` in the Git-ignored `secrets/slack.env`,
 open a new shell, and restart Codex. Turn-completion notifications are sent by
 `codex/notify_slack.py`.
 
-Notifications contain the project, Git branch, abbreviated latest
-request/result, and completion time. Only the last non-empty item from Codex's
-`input-messages` is used as the request. `CODEX_SLACK_NOTIFY_PREVIEW_LENGTH`
-controls the preview length and defaults to 200 characters.
+Notifications contain the project, Codex working directory, Git branch,
+abbreviated latest request/result, and completion time. Only the last non-empty
+item from Codex's `input-messages` is used as the request.
+`CODEX_SLACK_NOTIFY_PREVIEW_LENGTH` controls the preview length and defaults to
+200 characters.
 
 To post unabridged text as replies in the same Slack thread, also set
 `CODEX_SLACK_NOTIFY_BOT_TOKEN` and `CODEX_SLACK_NOTIFY_CHANNEL_ID` in

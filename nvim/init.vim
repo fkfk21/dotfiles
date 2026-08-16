@@ -59,7 +59,7 @@ call dein#add('s1n7ax/nvim-window-picker')
 call dein#add('lukas-reineke/indent-blankline.nvim' , {'rev': 'v3.6.2'})
 
 " Color Schemes (syntax highlighting)
-call dein#add('nvim-treesitter/nvim-treesitter')
+call dein#add('nvim-treesitter/nvim-treesitter', {'rev': 'master'}) " for nvim v0.11
 call dein#add('vim-scripts/scrollcolors')
 call dein#add('sainnhe/gruvbox-material')
 call dein#add('morhetz/gruvbox')
@@ -74,6 +74,10 @@ call dein#add('catppuccin/nvim')
 " Airline
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
+
+" Markdown
+call dein#add('MeanderingProgrammer/render-markdown.nvim', {'merged': 0})
+
 
 
 call dein#end()

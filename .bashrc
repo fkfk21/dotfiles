@@ -103,7 +103,7 @@ fi
 
 
 if [ -d "$HOME/.cargo" ]; then
-  source "$HOME/.cargo/env"
+  . "$HOME/.cargo/env"
 fi
 
 export WANDB_USERNAME=fkfk21
@@ -116,4 +116,3 @@ if [ -z "$FISH_VERSION" ]; then
       exec zsh
     fi
 fi
-. "$HOME/.cargo/env"

@@ -19,15 +19,42 @@ mozc settings > Keymap > Customize > Import from File
 
 ### Codex
 
-Configure Codex notification and link optional user-managed files and skills by:
+Configure Codex shared settings, notification, and optional user-managed files
+and skills by:
 
 ```bash
 ./linkcodex.sh
 ```
 
-The script preserves `~/.codex/config.toml` as a regular file. It adds
-`notify = ["codex-slack-notify"]` at the end of the root-key section, before
-the first TOML table, and creates a timestamped backup before changing it.
+`codex/config.shared.toml` contains the portable Codex settings tracked by
+these dotfiles. The script merges only these leaves into the regular local
+`~/.codex/config.toml`:
+
+```text
+model, model_reasoning_effort, personality, web_search,
+service_tier, approvals_reviewer,
+features.multi_agent, features.js_repl, features.hooks,
+tui.theme, tui.status_line, tui.status_line_use_colors
+```
+
+Edit shared values in `codex/config.shared.toml`, then rerun
+`./linkcodex.sh`. Local edits to these managed leaves are replaced on the next
+sync; edit other machine-specific settings directly in `~/.codex/config.toml`.
+
+Project trust, MCP, plugin, state, and other machine-specific settings remain
+local. Removing a managed leaf from `config.shared.toml` removes it from the
+local config on the next run. TOML comments and formatting are preserved by
+the TOMLKit-based sync script. `uv` is required; its first run may resolve the
+inline `tomlkit` dependency.
+
+When a change is needed, the existing config is backed up as a timestamped
+`.pre-dotfiles-*` file before an atomic replacement. If all managed values
+already match, the file is not written and no backup is made.
+
+For notifications, an existing `hooks.json` containing `codex-slack-notify`
+is treated as authoritative and the config is left without a `notify` key.
+On a machine without that hook, the script preserves the fallback behavior of
+ensuring `notify = ["codex-slack-notify"]` in the local config.
 
 Set `CODEX_SLACK_NOTIFY_WEBHOOK_URL` in the Git-ignored `secrets/slack.env`,
 open a new shell, and restart Codex. Turn-completion notifications are sent by

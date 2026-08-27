@@ -3,7 +3,8 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from collections.abc import Iterator
+from datetime import datetime, timedelta
 import json
 import os
 from pathlib import Path
@@ -23,6 +24,199 @@ SLACK_WEB_API_URL = "https://slack.com/api/chat.postMessage"
 DEFAULT_PREVIEW_LENGTH = 200
 MAX_PREVIEW_LENGTH = 1500
 DETAIL_CHUNK_LENGTH = 3000
+RECENT_SUBAGENT_WINDOW_SECONDS = 600
+
+
+def message_text(message: dict[str, Any]) -> str:
+    content = message.get("content")
+    if not isinstance(content, list):
+        return ""
+    texts = [
+        item.get("text", "")
+        for item in content
+        if isinstance(item, dict) and isinstance(item.get("text"), str)
+    ]
+    return "\n".join(text for text in texts if text).strip()
+
+
+def session_metadata(transcript_path: Path) -> dict[str, Any] | None:
+    try:
+        with transcript_path.open(encoding="utf-8") as transcript:
+            first_line = transcript.readline()
+    except OSError:
+        return None
+
+    try:
+        record = json.loads(first_line)
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(record, dict) or record.get("type") != "session_meta":
+        return None
+    payload = record.get("payload")
+    return payload if isinstance(payload, dict) else None
+
+
+def is_luna_worker_metadata(metadata: dict[str, Any]) -> bool:
+    if metadata.get("agent_role") == "luna_worker":
+        return True
+    source = metadata.get("source")
+    if not isinstance(source, dict):
+        return False
+    subagent = source.get("subagent")
+    if not isinstance(subagent, dict):
+        return False
+    spawn = subagent.get("thread_spawn")
+    return isinstance(spawn, dict) and spawn.get("agent_role") == "luna_worker"
+
+
+def reversed_transcript_records(
+    transcript_path: Path,
+) -> Iterator[dict[str, Any]]:
+    try:
+        with transcript_path.open("rb") as transcript:
+            transcript.seek(0, os.SEEK_END)
+            position = transcript.tell()
+            remainder = b""
+            while position:
+                chunk_size = min(position, 64 * 1024)
+                position -= chunk_size
+                transcript.seek(position)
+                lines = (transcript.read(chunk_size) + remainder).split(b"\n")
+                remainder = lines[0]
+                for line in reversed(lines[1:]):
+                    if not line:
+                        continue
+                    try:
+                        record = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    if isinstance(record, dict):
+                        yield record
+            if remainder:
+                try:
+                    record = json.loads(remainder)
+                except json.JSONDecodeError:
+                    return
+                if isinstance(record, dict):
+                    yield record
+    except OSError:
+        return
+
+
+def latest_transcript_message(transcript_path: Path, role: str) -> str:
+    for record in reversed_transcript_records(transcript_path):
+        if record.get("type") != "response_item":
+            continue
+        payload = record.get("payload")
+        if (
+            isinstance(payload, dict)
+            and payload.get("type") == "message"
+            and payload.get("role") == role
+        ):
+            return message_text(payload)
+    return ""
+
+
+def notification_from_stop_hook(hook: dict[str, Any]) -> dict[str, Any] | None:
+    if hook.get("hook_event_name") != "Stop":
+        return None
+
+    transcript_value = hook.get("transcript_path")
+    transcript_path = (
+        Path(transcript_value) if isinstance(transcript_value, str) else None
+    )
+    if transcript_path is not None:
+        metadata = session_metadata(transcript_path)
+        if metadata is not None:
+            source = metadata.get("source")
+            if metadata.get("thread_source") in {"subagent", "guardian_review"} or (
+                isinstance(source, dict) and "subagent" in source
+            ):
+                return None
+        request = latest_transcript_message(transcript_path, "user")
+    else:
+        request = ""
+
+    return {
+        "type": EVENT_TYPE,
+        "cwd": hook.get("cwd"),
+        "input-messages": [request or "Request unavailable."],
+        "last-assistant-message": hook.get("last_assistant_message"),
+    }
+
+
+def codex_sessions_directory() -> Path:
+    codex_home = os.environ.get("CODEX_HOME")
+    return (Path(codex_home) if codex_home else Path.home() / ".codex") / "sessions"
+
+
+def session_paths_for_id(sessions_directory: Path, thread_id: str) -> list[Path]:
+    return list(sessions_directory.glob(f"*/*/*/*{thread_id}.jsonl"))
+
+
+def recent_session_paths(
+    sessions_directory: Path,
+    now: datetime,
+) -> list[Path]:
+    paths: list[Path] = []
+    cutoff = now.timestamp() - RECENT_SUBAGENT_WINDOW_SECONDS
+    for day_offset in (0, 1):
+        day = now - timedelta(days=day_offset)
+        day_directory = sessions_directory / day.strftime("%Y/%m/%d")
+        for path in day_directory.glob("rollout-*.jsonl"):
+            try:
+                if path.stat().st_mtime >= cutoff:
+                    paths.append(path)
+            except OSError:
+                continue
+    return paths
+
+
+def transcript_contains_turn(transcript_path: Path, turn_id: str) -> bool:
+    try:
+        with transcript_path.open(encoding="utf-8") as transcript:
+            for line in transcript:
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if isinstance(record, dict) and record.get("type") == "turn_context":
+                    payload = record.get("payload")
+                    if isinstance(payload, dict) and payload.get("turn_id") == turn_id:
+                        return True
+    except OSError:
+        return False
+    return False
+
+
+def is_luna_worker_notification(
+    notification: dict[str, Any],
+    sessions_directory: Path | None = None,
+    now: datetime | None = None,
+) -> bool:
+    thread_id_value = notification.get("thread-id") or notification.get("thread_id")
+    thread_id = str(thread_id_value) if thread_id_value else ""
+    turn_id_value = notification.get("turn-id") or notification.get("turn_id")
+    turn_id = str(turn_id_value) if turn_id_value else ""
+    sessions_directory = sessions_directory or codex_sessions_directory()
+
+    if thread_id:
+        for path in session_paths_for_id(sessions_directory, thread_id):
+            metadata = session_metadata(path)
+            if metadata is not None and is_luna_worker_metadata(metadata):
+                return True
+
+    if not turn_id:
+        return False
+
+    current_time = now or datetime.now().astimezone()
+    for path in recent_session_paths(sessions_directory, current_time):
+        metadata = session_metadata(path)
+        if metadata is None or not is_luna_worker_metadata(metadata):
+            continue
+        if transcript_contains_turn(path, turn_id):
+            return True
+    return False
 
 
 def escape_slack_text(value: object) -> str:
@@ -237,12 +431,17 @@ def post_to_slack_api(
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) != 2:
-        print("usage: codex-slack-notify '<notification-json>'", file=sys.stderr)
+    hook_mode = len(argv) == 1
+    if len(argv) not in (1, 2):
+        print(
+            "usage: codex-slack-notify ['<notification-json>']",
+            file=sys.stderr,
+        )
         return 2
 
+    raw_notification = sys.stdin.read() if hook_mode else argv[1]
     try:
-        notification = json.loads(argv[1])
+        notification = json.loads(raw_notification)
     except json.JSONDecodeError as error:
         print(f"codex-slack-notify: invalid notification JSON: {error}", file=sys.stderr)
         return 2
@@ -251,8 +450,17 @@ def main(argv: list[str]) -> int:
         print("codex-slack-notify: notification must be a JSON object", file=sys.stderr)
         return 2
 
-    if notification.get("type") != EVENT_TYPE:
-        return 0
+    if hook_mode:
+        converted_notification = notification_from_stop_hook(notification)
+        if converted_notification is None:
+            print("{}")
+            return 0
+        notification = converted_notification
+    else:
+        if notification.get("type") != EVENT_TYPE:
+            return 0
+        if is_luna_worker_notification(notification):
+            return 0
 
     try:
         parent, details = build_messages(notification, preview_length_from_environment())
@@ -289,6 +497,8 @@ def main(argv: list[str]) -> int:
         print(f"codex-slack-notify: failed to send notification: {error}", file=sys.stderr)
         return 1
 
+    if hook_mode:
+        print("{}")
     return 0
 
 

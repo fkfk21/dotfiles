@@ -1,0 +1,16 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "xhigh"
+personality = "pragmatic"
+web_search = "live"
+service_tier = "default"
+approvals_reviewer = "auto_review"
+
+[features]
+multi_agent = true
+js_repl = false
+hooks = true
+
+[tui]
+theme = "catppuccin-mocha"
+status_line = ["model-with-reasoning", "current-dir", "five-hour-limit", "weekly-limit", "context-used", "git-branch", "branch-changes", "run-state", "permissions", "thread-title", "task-progress", "thread-id"]
+status_line_use_colors = true

@@ -57,6 +57,12 @@ configure_notify() {
     local temp_path
     local backup_path
 
+    if [ -f "$TARGET_DIR/hooks.json" ] &&
+        grep -Fq 'codex-slack-notify' "$TARGET_DIR/hooks.json"; then
+        echo "Notification hook already exists: $TARGET_DIR/hooks.json"
+        return 0
+    fi
+
     if [ ! -e "$config_path" ] && [ ! -L "$config_path" ]; then
         (
             umask 077
@@ -126,6 +132,13 @@ configure_notify() {
 }
 
 mkdir -p -- "$TARGET_DIR"
+
+if ! command -v uv >/dev/null 2>&1; then
+    echo "uv is required to synchronize Codex shared config." >&2
+    exit 1
+fi
+uv run --script "$SOURCE_DIR/sync_config.py" \
+    "$SOURCE_DIR/config.shared.toml" "$TARGET_DIR/config.toml"
 
 backup_and_link "$SOURCE_DIR/notify_slack.py" "$HOME/.local/bin/codex-slack-notify"
 configure_notify

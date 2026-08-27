@@ -189,8 +189,6 @@
     "files.autoSave": "afterDelay",
     "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
     "python.defaultInterpreterPath": ".venv/bin/python",
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "github.copilot.nextEditSuggestions.enabled": true,
     "remote.SSH.remotePlatform": {
         "lab-desktop": "linux"
